@@ -46,7 +46,7 @@ def convert_html_to_pdf(data, output_path, template_name, search_path, renderer)
     """Convert HTML Template to PDF by embedding JSON data"""
     try:
         template_loader = jinja2.FileSystemLoader(searchpath=search_path)
-        template_env = jinja2.Environment(loader=template_loader)
+        template_env = jinja2.Environment(loader=template_loader, autoescape=True)
         template = template_env.get_template(template_name)
         current_date = datetime.datetime.now().strftime("%B %d, %Y")
         load_history_items = []
